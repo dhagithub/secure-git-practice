@@ -3,6 +3,8 @@ on: push # イベント
 jobs: # ジョブ
   hello: # ジョブ名
     runs-on: ubuntu-latest # ランナー
+    env:
+      PASSWORD: ${{ secrets.SYSTEM_PASSWORD}}
     steps: # ステップ
-      - run: echo "Hello, world" # シェルコマンド
+      - run: echo "${PASSWORD}" # シェルコマンド
       - uses: actions/checkout@v4 # アクション
